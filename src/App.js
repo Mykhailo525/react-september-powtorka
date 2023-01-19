@@ -1,12 +1,13 @@
 import {Posts} from "./components/Posts/Posts";
+import {Rockets} from "./components/Rockets/rockets";
 
 const App = () => {
   return (
       <div>
 
-        <Posts/>
+        {/*<Posts/>*/}
 
-
+          <Rockets/>
 
       </div>
   );

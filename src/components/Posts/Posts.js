@@ -23,7 +23,7 @@ const Posts = () => {
             {postDetails && <SelectedPost post={postDetails}/>}
             <hr/>
             <h1>Posts</h1>
-            {posts.filter(item=>item.id!==2).map(item=><Post key={item.id} post={item} setPostDetails={setPostDetails}/>)}
+            {posts.map(item=><Post key={item.id} post={item} setPostDetails={setPostDetails}/>)}
         </div>
     );
 };
