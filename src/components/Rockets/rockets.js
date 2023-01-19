@@ -13,7 +13,7 @@ const Rockets = () => {
 
     return (
         <div>
-            {rockets.filter(item=>item.launch_year!=2020).map((rocket,index)=><Rocket key={index+1} rocket={rocket}/>)}
+            {rockets.filter(item=>item.launch_year!=2020).map((rocket, index)=><Rocket key={index+1} rocket={rocket}/>)}
         </div>
     );
 };
