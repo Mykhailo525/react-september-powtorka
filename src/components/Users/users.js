@@ -15,7 +15,7 @@ const Users = () => {
         <div>
             <h1>Users</h1>
             {users.map((value,index) =><User key={index+1} user={value} setUserDetails={setUserDetails}/> )}
-            <h1>User Posts</h1>
+            <h1>User's Posts</h1>
             {userDetails &&  <div>{userDetails.map(comment=><UserPosts key={comment.id} posts={comment}/>)} </div>}
         </div>
     );
