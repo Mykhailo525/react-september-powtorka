@@ -19,7 +19,7 @@ const Posts = () => {
 
     return (
         <div>
-            <h1>Post</h1>
+            <h1>Post Info</h1>
             {postDetails && <SelectedPost post={postDetails}/>}
             <hr/>
             <h1>Posts</h1>
