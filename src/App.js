@@ -5,9 +5,9 @@ const App = () => {
   return (
       <div>
 
-        {/*<Posts/>*/}
+        <Posts/>
 
-          <Rockets/>
+          {/*<Rockets/>*/}
 
       </div>
   );
