@@ -7,7 +7,7 @@ const App = () => {
 
         <Posts/>
 
-          {/*<Rockets/>*/}
+          <Rockets/>
 
       </div>
   );
