@@ -6,6 +6,11 @@ const userService={
     create:(newUser)=>axiosService.post(urls.users,newUser)
 }
 
+const postService={
+    getAll:()=>axiosService.get(urls.posts),
+    create:(newPost)=>axiosService.post(urls.posts,newPost)
+}
+
 export {
-    userService
+    userService,postService
 }
