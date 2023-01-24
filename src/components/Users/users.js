@@ -1,18 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
-import {User} from "./user";
-import {UserPosts} from "./userPosts";
+
+import {User} from "../User/user";
+import {UserPosts} from "../UserPosts/userPosts";
+import {userService} from "../../services";
 
 const Users = () => {
+
     const[users,setUsers]=useState([])
     const[id,setId]=useState(null)
     const[posts,setPosts]=useState([])
 
-    useEffect(()=>{axios.get('https://jsonplaceholder.typicode.com/users')
+
+    useEffect(()=>{userService.getAll()
         .then(value => value.data)
         .then(value => setUsers([...value]))},[])
 
-    useEffect(()=>{axios.get(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+
+    useEffect(()=>{userService.getPostsById(id)
         .then(value => value.data)
         .then(value => setPosts([...value]))},[id])
 
