@@ -1,0 +1,16 @@
+import React from 'react';
+import css from './Todo.module.css'
+
+const Todo = ({todo}) => {
+    const{userId,id,title,completed}=todo
+    return (
+        <div className={css.Todo}>
+            <div>userId : {userId}</div>
+            <div>id : {id}</div>
+            <div className={css.Wrap}>title : {title}</div>
+            <div>completed : {completed.toString()}</div>
+        </div>
+    );
+};
+
+export {Todo};

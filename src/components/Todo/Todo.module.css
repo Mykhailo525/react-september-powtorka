@@ -1,0 +1,14 @@
+.Todo{
+    width: 200px;
+    height: 200px;
+    border: 2px dashed blue;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.Wrap{
+    margin: 0px 20px 0px 20px ;
+}
