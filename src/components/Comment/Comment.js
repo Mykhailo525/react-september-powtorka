@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Comment.module.css'
+import {Link} from "react-router-dom";
 
 const Comment = ({comment}) => {
     const{postId,id,name,email,body}=comment
@@ -10,6 +11,7 @@ const Comment = ({comment}) => {
             <div className={css.Wrap}>name : {name}</div>
             <div>email : {email}</div>
             <div className={css.Block}>body : {body}</div>
+            <Link to={postId.toString()}>Post</Link>
         </div>
     );
 };
