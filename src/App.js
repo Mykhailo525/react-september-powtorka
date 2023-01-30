@@ -15,9 +15,12 @@ const App = () => {
             <Route index element={<HomePage/>}/>
             <Route path={'todos'} element={<TodosPage/>}/>
             <Route path={'albums'} element={<AlbumsPage/>}/>
+
+
             <Route path={'comments'} element={<CommentsPage/>}>
             <Route path={':postId'} element={<PostPage/>}/>
             </Route>
+
 
             <Route path={'*'} element={<NotFoundPage/>}/>
         </Route>

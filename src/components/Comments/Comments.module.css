@@ -3,3 +3,13 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.Wrapper{
+    height: 250px;
+    border: 5px solid red;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}

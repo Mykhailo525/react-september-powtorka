@@ -8,7 +8,6 @@ const CommentsPage = () => {
     return (
         <div>
             <Outlet/>
-            <h1>Comments</h1>
             <Comments/>
         </div>
     );

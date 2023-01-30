@@ -1,21 +1,27 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
+
 
 import css from './Comment.module.css'
-import {Link,useNavigate} from "react-router-dom";
 
 
 const Comment = ({comment}) => {
+    const navigate = useNavigate()
 
-    const scrollToTop=()=>{
-        window.scrollTo(0,0)
-    }
+    const{postId,id,name,email,body}=comment
+
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
 
     const functionNavigate=()=>{
-        navigate(postId.toString())
+        navigate(postId.toString(),{state:comment})
     }
-
-    const navigate = useNavigate()
-    const{postId,id,name,email,body}=comment
 
     return (
         <div className={css.Comment}>
@@ -25,7 +31,6 @@ const Comment = ({comment}) => {
             <div>email : {email}</div>
             <div>body : {body}</div>
             <button onClick={()=>{functionNavigate();scrollToTop()}}>Show The Post</button>
-            {/*<Link to={postId.toString()}>Post</Link>*/}
         </div>
     );
 };
