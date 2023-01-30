@@ -8,9 +8,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: burlywood;
+    text-align: center;
 }
 
-.Block , .Wrap{
-    margin: 0px 20px 0px 20px ;
-}
+
 

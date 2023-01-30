@@ -8,9 +8,9 @@ const Comment = ({comment}) => {
         <div className={css.Comment}>
             <div>postId : {postId}</div>
             <div>id : {id}</div>
-            <div className={css.Wrap}>name : {name}</div>
+            <div>name : {name}</div>
             <div>email : {email}</div>
-            <div className={css.Block}>body : {body}</div>
+            <div>body : {body}</div>
             <Link to={postId.toString()}>Post</Link>
         </div>
     );

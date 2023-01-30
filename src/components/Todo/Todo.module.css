@@ -7,8 +7,6 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    text-align: center;
 }
 
-.Wrap{
-    margin: 0px 20px 0px 20px ;
-}

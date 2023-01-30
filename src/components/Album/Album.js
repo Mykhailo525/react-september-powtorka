@@ -7,7 +7,7 @@ const Album = ({album}) => {
         <div className={style.Album}>
             <div>userId : {userId}</div>
             <div>id : {id}</div>
-            <div className={style.Block}>title : {title}</div>
+            <div>title : {title}</div>
         </div>
     );
 };

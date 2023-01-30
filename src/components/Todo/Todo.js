@@ -7,7 +7,7 @@ const Todo = ({todo}) => {
         <div className={css.Todo}>
             <div>userId : {userId}</div>
             <div>id : {id}</div>
-            <div className={css.Wrap}>title : {title}</div>
+            <div >title : {title}</div>
             <div>completed : {completed.toString()}</div>
         </div>
     );
