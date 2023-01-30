@@ -1,0 +1,8 @@
+.Post{
+    height: 150px;
+    border: 5px dashed black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
