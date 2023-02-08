@@ -1,7 +1,11 @@
+import {Posts} from "./components/Posts/Posts";
+import {Comments} from "./components/Comments/Comments";
+
 const App = () => {
   return (
       <div>
-        App
+        {/*<Posts/>*/}
+          <Comments/>
       </div>
   );
 };
