@@ -4,8 +4,8 @@ import {Comments} from "./components/Comments/Comments";
 const App = () => {
   return (
       <div>
-        {/*<Posts/>*/}
-          <Comments/>
+        <Posts/>
+        {/*  <Comments/>*/}
       </div>
   );
 };
