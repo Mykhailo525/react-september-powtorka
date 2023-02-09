@@ -23,6 +23,8 @@ const Pets = () => {
                 const catIndex = state.cats.findIndex(value => value.id === action.payload)
                 state.cats.splice(catIndex, 1)
                 return {...state}
+            default:
+                return {...state}
         }
 
     }
