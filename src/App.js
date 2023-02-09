@@ -1,7 +1,9 @@
+import {Pets} from "./components/Pets/Pets";
+
 const App = () => {
   return (
       <div>
-        App
+        <Pets/>
       </div>
   );
 };
