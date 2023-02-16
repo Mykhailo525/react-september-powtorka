@@ -16,29 +16,32 @@ const CarForm = () => {
 
     useEffect(() => {
         if (updateCar) {
-            setValue('brand', updateCar.brand)
-            setValue('price', updateCar.price)
-            setValue('year', updateCar.year)
+            setValue('brand', updateCar.brand,{shouldValidate:true})
+            setValue('price', updateCar.price,{shouldValidate:true})
+            setValue('year', updateCar.year,{shouldValidate:true})
         }
     }, [updateCar])
 
 
     const dispatch=useDispatch()
 
-    const submit = async (data) => {
-        if(updateCar){
-            const {id}=updateCar
-            dispatch(carActions.updateById(id,data))
-        }
+    const submit = async (car) => {
+        await dispatch(carActions.create({car}))
+        reset()
     };
 
+    const update=async (car)=>{
+        await dispatch(carActions.updateById({id:updateCar.id,car}))
+        reset()
+    }
+
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(updateCar?update:submit)}>
             <input type="text" placeholder={'brand'} {...register('brand')}/>
             {errors.brand && <span>{errors.brand.message}</span>}
-            <input type="text" placeholder={'price'} {...register('price')}/>
+            <input type="text" placeholder={'price'} {...register('price',{valueAsNumber:true})}/>
             {errors.price && <span>{errors.price.message}</span>}
-            <input type="text" placeholder={'year'} {...register('year')}/>
+            <input type="text" placeholder={'year'} {...register('year',{valueAsNumber:true})}/>
             {errors.year && <span>{errors.year.message}</span>}
             <button disabled={!isValid}>{updateCar ? 'Update' : 'Create'}</button>
         </form>

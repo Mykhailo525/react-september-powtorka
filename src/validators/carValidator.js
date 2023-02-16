@@ -15,3 +15,4 @@ const carValidator=Joi.object({
 export {
     carValidator
 }
+

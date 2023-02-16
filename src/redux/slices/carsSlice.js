@@ -20,41 +20,43 @@ const getAll=createAsyncThunk(
     }
 );
 
-const updateById=createAsyncThunk(
-    'carsSlice/updateById',
-    async ({id,data},{rejectedWithValue})=>{
-        try {
-            const {carData}=await carService.updateById(id,data)
-            return carData
-        }catch (e) {
-            return rejectedWithValue(e.return.data)
-        }
-    }
-);
-
 const create=createAsyncThunk(
     'carsSlice/create',
-    async ({newCar},{rejectedWithValue})=>{
+    async ({car},thunkAPI)=>{
         try {
-            const {data}=await carService.create(newCar)
-            return data
+            await carService.create(car)
+            thunkAPI.dispatch(getAll())
         }catch (e) {
-            return rejectedWithValue(e.return.data)
+            return thunkAPI.rejectWithValue(e.return.data)
         }
     }
 );
 
 const deleteById=createAsyncThunk(
     'carsSlice/deleteById',
-    async ({id},{rejectedWithValue})=>{
+    async ({id},thunkAPI)=>{
         try {
-            const {data}=await carService.deleteById(id)
-            return data
+            await carService.deleteById(id)
+            thunkAPI.dispatch(getAll())
         }catch (e) {
-            return rejectedWithValue(e.return.data)
+            return thunkAPI.rejectWithValue(e.return.data)
         }
     }
 );
+
+
+const updateById=createAsyncThunk(
+    'carsSlice/updateById',
+    async ({id,car},thunkAPI)=>{
+        try {
+            await carService.updateById(id,car)
+            thunkAPI.dispatch(getAll())
+        }catch (e) {
+            return thunkAPI.rejectWithValue(e.return.data)
+        }
+    }
+);
+
 
 
 const carsSlice=createSlice({
@@ -83,7 +85,7 @@ const carsSlice=createSlice({
 const {reducer:carReducer,actions:{setUpdateCar}}=carsSlice
 
 const carActions={
-    getAll,deleteById,updateById,create,setUpdateCar
+    getAll,deleteById,create,setUpdateCar,updateById
 }
 
 export {
