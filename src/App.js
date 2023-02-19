@@ -1,13 +1,13 @@
-import {CarForm, Cars} from "./components";
+import {Routes} from "react-router-dom"
 
 const App = () => {
-  return (
-      <div>
-        <CarForm/>
-          <hr/>
-          <Cars/>
-      </div>
-  );
+
+    return(
+        <Routes>
+
+        </Routes>
+    )
+
 };
 
 export {App};
