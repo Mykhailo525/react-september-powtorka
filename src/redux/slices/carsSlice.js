@@ -1,8 +1,10 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {carService} from "../../services/carService";
+import {carService} from "../../services";
 
 let initialState={
     cars:[],
+    prev:null,
+    next:null,
     errors:null,
     loading:null,
     updateCar:null
@@ -10,9 +12,9 @@ let initialState={
 
 const getAll=createAsyncThunk(
     'carsSlice/getAll',
-    async (_,{rejectedWithValue})=>{
+    async ({page},{rejectedWithValue})=>{
         try {
-            const {data}=await carService.getAll()
+            const {data}=await carService.getAll(page)
             return data
         }catch (e) {
             return rejectedWithValue(e.response.data)
@@ -25,7 +27,7 @@ const create=createAsyncThunk(
     async ({car},thunkAPI)=>{
         try {
             await carService.create(car)
-            thunkAPI.dispatch(getAll())
+            thunkAPI.dispatch(getAll({page:1}))
         }catch (e) {
             return thunkAPI.rejectWithValue(e.return.data)
         }
@@ -70,8 +72,11 @@ const carsSlice=createSlice({
     extraReducers:builder =>
         builder
             .addCase(getAll.fulfilled,(state, action)=>{
+                const{prev,next,items}=action.payload
+                state.cars=items
+                state.prev=prev
+                state.next=next
                 state.loading=false
-                state.cars=action.payload
             })
             .addCase(getAll.pending,(state)=>{
                 state.loading=true
