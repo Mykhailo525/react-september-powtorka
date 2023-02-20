@@ -31,7 +31,6 @@ const LoginPage = () => {
                     <button>Login</button>
                 </form>
             </div>
-
             {error?.detail&&
             <div>
                 {error.detail}
